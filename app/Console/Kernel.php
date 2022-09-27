@@ -16,7 +16,6 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call('App\Http\Controllers\Api\ProductController@store')->everyMinute();
         $schedule->call('App\Http\Controllers\Api\ProductController@store')
             ->dailyAt("06:00");
     }
