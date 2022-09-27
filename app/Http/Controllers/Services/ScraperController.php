@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 
 class ScraperController extends Controller
 {
-    private int $totalPages = 25863;
-
     public static function getProducts()
     {
+        $page = 1;
+        $page = ++$page;
         $baseUrl = 'https://world.openfoodfacts.org';
-        $html = file_get_contents($baseUrl);
+        $html = file_get_contents($baseUrl. "/$page");
         $dom = new \DOMDocument();
         @$dom->loadHTML($html);
         $listLinks = $dom->getElementsByTagName('a');
