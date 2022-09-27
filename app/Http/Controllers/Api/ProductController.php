@@ -37,7 +37,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $products = ScraperController::getProducts();
-        $this->repository->create($products[3]);
+        $this->repository->create($products);
 
         return response()->json([
             'message' => 'Product created successfully',
