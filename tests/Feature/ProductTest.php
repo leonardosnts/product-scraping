@@ -5,6 +5,7 @@ namespace Tests\Feature;
 use App\Models\Products;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 
 class ProductTest extends TestCase
@@ -30,8 +31,7 @@ class ProductTest extends TestCase
 
     public function test_get_product()
     {
-        $productId = Products::all();
-        $response = $this->get("api/products/$productId[0]['code']");
+        $response = $this->get("api/products/3017620422003");
 
         $response->assertStatus(200);
     }
